@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+
+body {
+  font-family: Ubuntu, Oxygen, Roboto, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+main {
+  text-align: center;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+main#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

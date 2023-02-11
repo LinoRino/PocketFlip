@@ -1,0 +1,10 @@
+:root {
+  /* Colors */
+  --v2-primary-color: #000000;
+  --v2-secondary-color: #ffc400;
+  /* Button Utility */
+  --v2-button-padding-x: 0.75rem;
+  --v2-button-padding-y: 0.875rem;
+  --v2-button-outline-width: 0px;
+  --v2-button-outline-style: solid;
+}

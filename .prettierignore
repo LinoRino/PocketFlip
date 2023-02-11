@@ -1,0 +1,31 @@
+dist
+.solid
+.output
+.vercel
+.netlify
+netlify
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+pnpm-lock.yaml
+
+# Temp
+gitignore
+
+# code that doesn't change
+/src/entry-client.tsx
+/src/entry-server.tsx
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# backend
+/backend
