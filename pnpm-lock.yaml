@@ -15,7 +15,7 @@ specifiers:
   prettier: ^2.8.3
   solid-js: ^1.6.9
   solid-start: ^0.2.15
-  solid-start-node: ^0.2.19
+  solid-start-node: ^0.2.20
   solid-styled: ^0.7.4
   solid-styled-components: ^0.28.5
   typescript: ^4.9.4
@@ -42,7 +42,7 @@ devDependencies:
   eslint-plugin-solid: 0.9.4_4vsywjlpuriuw3tl5oq6zy5a64
   pocketbase: 0.10.1
   prettier: 2.8.3
-  solid-start-node: 0.2.19_qfessptb74pcguzedvv62xkfr4
+  solid-start-node: 0.2.20_qfessptb74pcguzedvv62xkfr4
   solid-styled-components: 0.28.5_solid-js@1.6.10
   typescript: 4.9.5
   vite: 3.2.5
@@ -3862,8 +3862,8 @@ packages:
       '@babel/types': 7.20.7
       solid-js: 1.6.10
 
-  /solid-start-node/0.2.19_qfessptb74pcguzedvv62xkfr4:
-    resolution: {integrity: sha512-5Rtlh4PKm6zDuvFoPzf8xEzz5ca35uoyCeHbEqhcVnD9OqqhW8iKevaoNwlJ3Vm9yZHP53SWcS6F3e/KOnvBpA==}
+  /solid-start-node/0.2.20_qfessptb74pcguzedvv62xkfr4:
+    resolution: {integrity: sha512-MWpaJKgy5OgdQHpN1cS9nQy3NEgD6QeViGc6AKP0PvowsZ4k+lPI1eT2JyObfLh4PUT9qABhVh8g1jctBra6CA==}
     peerDependencies:
       solid-start: '*'
       undici: ^5.8.0

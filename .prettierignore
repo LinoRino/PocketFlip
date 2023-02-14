@@ -18,6 +18,7 @@ pnpm-lock.yaml
 
 # Temp
 gitignore
+*.md
 
 # code that doesn't change
 /src/entry-client.tsx
