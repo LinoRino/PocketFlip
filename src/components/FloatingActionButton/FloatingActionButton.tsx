@@ -13,7 +13,7 @@ type V2FloatingActionButtonComponent = {
 export function Fab(props: V2FloatingActionButtonComponent) {
   const FabClass = css({
     alignItems: "center",
-    boxShadow:"0 6px 0.5rem #00000051",
+    boxShadow: "0 6px 0.5rem #00000051",
     backgroundColor: "black",
     border: 0,
     borderRadius: "1em",
@@ -44,7 +44,7 @@ export function Fab(props: V2FloatingActionButtonComponent) {
       display: "flex",
       marginLeft: "0.5rem",
     },
-    ...props.sx
+    ...props.sx,
   });
   return (
     <button class={FabClass} type={props.type}>

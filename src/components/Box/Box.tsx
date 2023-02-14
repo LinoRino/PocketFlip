@@ -5,10 +5,11 @@ import { V2CssMediaQ, sxMediaQ } from "../utility/Utility";
 type V2BoxComponent<T> = {
   children?: JSX.Element;
   sx?: CSSObject & V2CssMediaQ;
-  element?: "div" | "nav" | "span" | "main"
-  event?: JSX.CustomEventHandlersCamelCase<T>
+  element?: "div" | "nav" | "span" | "main";
+  event?: JSX.CustomEventHandlersCamelCase<T>;
 };
 
+//TODO: Change to be able to create an dynamic tag.
 export function Box<T>(props: V2BoxComponent<T>): JSX.Element {
   const BoxClass = css(props.sx);
   return (

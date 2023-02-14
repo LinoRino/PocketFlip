@@ -7,6 +7,7 @@ type V2TxtInputComponent = {
   id?: string;
   label?: string;
   placeholder?: string;
+  name?: string;
   autoComplete?: boolean;
   autoCapitalize?: boolean;
   autoFocus?: boolean;
@@ -58,15 +59,18 @@ export function TxtInput(props: V2TxtInputComponent) {
   });
   return (
     <label class={InputStyle}>
-      <span class="V2TxtInput-Label">
-        {props.label}
-        {props.required && <span class="V2TxtInput-Required">*</span>}
-      </span>
+      {props.label ? (
+        <span class="V2TxtInput-Label">
+          {props.label}
+          {props.required && <span class="V2TxtInput-Required">*</span>}
+        </span>
+      ) : null}
       <div class="V2TxtInput-Span">
         <input
           onChange={props.event?.onChange}
           ref={props.inputRef}
           id={props.id}
+          name={props.name}
           type={show() ? "text" : props.type}
           required={props.required}
           readOnly={props.readOnly}
@@ -100,7 +104,7 @@ export function TxtInput(props: V2TxtInputComponent) {
                 scale: 0.95;
               }
             `}
-            title={show() ? "パスワードを表示する": "パスワードを隠す"}
+            title={show() ? "パスワードを表示する" : "パスワードを隠す"}
           >
             {show() ? "􀋰" : "􀋮"}
           </button>
