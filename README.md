@@ -10,10 +10,12 @@ PocketFlip is a study app.
 
 Here is how to set up this project.
 
-1. Run ```./backend/pocketbase serve``` to run PocketBase server.
-2. Go http://localhost:8090/_/#/settings/import-collections, click **Load from Json file**, and open **./backend/collection.json** to import collections.
-3. Run ```pnpm install``` to  install dependencies
-4. Run ```pnpm dev``` to start server.
+1. Download PocketBase from [pocketbase.io](https://pocketbase.io/docs/)
+2. Then place a ```pocketbase``` into ```./backend``` folder.
+3. Run ```./backend/pocketbase serve``` to run PocketBase server.
+4. Go http://localhost:8090/_/#/settings/import-collections, click **Load from Json file**, and open **./backend/collection.json** to import collections.
+5. Run ```pnpm install``` to  install dependencies
+6. Run ```pnpm dev``` to start server.
 
 ## Commands
 
