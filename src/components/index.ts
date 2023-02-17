@@ -1,7 +1,8 @@
-export { BottomNav } from "./BottomNavigation"
-export { Box } from "./Box"
-export { Button } from "./Button"
-export { Fab } from "./FloatingActionButton"
-export { Txt } from "./Txt"
-export { TxtInput } from "./TxtInput"
-export { Toggle } from "./Toggle"
+export * from "./BottomNavigation";
+export * from "./Box";
+export * from "./Button";
+export * from "./FloatingActionButton";
+export * from "./Txt";
+export * from "./TxtInput";
+export * from "./Toggle";
+export * from "./Dialog";
