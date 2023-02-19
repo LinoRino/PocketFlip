@@ -1,20 +1,96 @@
-import { JSX } from "solid-js";
+import { JSX, ValidComponent } from "solid-js";
 import { css, CSSObject } from "@emotion/css";
-import { V2CssMediaQ, sxMediaQ } from "../utility/Utility";
+import { Dynamic } from "solid-js/web";
 
-type V2BoxComponent<T> = {
+type V2BoxComponent = {
   children?: JSX.Element;
-  sx?: CSSObject & V2CssMediaQ;
-  element?: "div" | "nav" | "span" | "main";
-  event?: JSX.CustomEventHandlersCamelCase<T>;
+  sx?: CSSObject
+  component?: ValidComponent
+  event?: JSX.CustomEventHandlersCamelCase<HTMLElement>;
+  class?: string;
+  role?:
+    | "alert"
+    | "alertdialog"
+    | "application"
+    | "article"
+    | "banner"
+    | "button"
+    | "cell"
+    | "checkbox"
+    | "columnheader"
+    | "combobox"
+    | "complementary"
+    | "contentinfo"
+    | "definition"
+    | "dialog"
+    | "directory"
+    | "document"
+    | "feed"
+    | "figure"
+    | "form"
+    | "grid"
+    | "gridcell"
+    | "group"
+    | "heading"
+    | "img"
+    | "link"
+    | "list"
+    | "listbox"
+    | "listitem"
+    | "log"
+    | "main"
+    | "marquee"
+    | "math"
+    | "menu"
+    | "menubar"
+    | "menuitem"
+    | "menuitemcheckbox"
+    | "menuitemradio"
+    | "meter"
+    | "navigation"
+    | "none"
+    | "note"
+    | "option"
+    | "presentation"
+    | "progressbar"
+    | "radio"
+    | "radiogroup"
+    | "region"
+    | "row"
+    | "rowgroup"
+    | "rowheader"
+    | "scrollbar"
+    | "search"
+    | "searchbox"
+    | "separator"
+    | "slider"
+    | "spinbutton"
+    | "status"
+    | "switch"
+    | "tab"
+    | "table"
+    | "tablist"
+    | "tabpanel"
+    | "term"
+    | "textbox"
+    | "timer"
+    | "toolbar"
+    | "tooltip"
+    | "tree"
+    | "treegrid"
+    | "treeitem";
 };
 
 //TODO: Change to be able to create an dynamic tag.
-export function Box<T>(props: V2BoxComponent<T>): JSX.Element {
-  const BoxClass = css(props.sx);
+export function Box(props: V2BoxComponent): JSX.Element {
+  const BoxClass = css(props.sx? props.sx : {});
   return (
-    <div class={`V2Box ${BoxClass} ${sxMediaQ(props.sx)}`}>
+    <Dynamic
+      component={props.component ? props.component : "div"}
+      role={props.role}
+      class={`V2Box ${props.class} ${BoxClass}`}
+    >
       {props.children}
-    </div>
+    </Dynamic>
   );
 }
