@@ -88,7 +88,7 @@ export function Dialog(props: V2DialogComponent): JSX.Element {
             justifyContent: "space-between",
           }}
         >
-          <Txt element="h2" sx={{ marginRight: "3rem" }}>
+          <Txt component="h2" sx={{ marginRight: "3rem" }}>
             Hello
           </Txt>
           <button
