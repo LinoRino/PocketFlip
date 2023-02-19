@@ -1,10 +1,10 @@
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 import { JSX } from "solid-js";
 import { sxMediaQ, V2CssMediaQ } from "../utility/Utility";
 
 type V2BottomNavigation = {
   children?: JSX.Element[];
-  sx?: CSSObject & V2CssMediaQ;
+  sx?: CSSAttribute & V2CssMediaQ;
 };
 
 export function BottomNav(props: V2BottomNavigation) {

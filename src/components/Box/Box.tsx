@@ -1,11 +1,12 @@
 import { JSX, ValidComponent } from "solid-js";
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 import { Dynamic } from "solid-js/web";
+import { sxMediaQ, V2CssMediaQ } from "../utility/Utility";
 
 type V2BoxComponent = {
   children?: JSX.Element;
-  sx?: CSSObject
-  component?: ValidComponent
+  sx?: CSSAttribute & V2CssMediaQ;
+  component?: ValidComponent;
   event?: JSX.CustomEventHandlersCamelCase<HTMLElement>;
   class?: string;
   role?:
@@ -83,7 +84,10 @@ type V2BoxComponent = {
 
 //TODO: Change to be able to create an dynamic tag.
 export function Box(props: V2BoxComponent): JSX.Element {
-  const BoxClass = css(props.sx? props.sx : {});
+  const BoxClass = css({
+    ...sxMediaQ(props.sx),
+    ...props.sx,
+  });
   return (
     <Dynamic
       component={props.component ? props.component : "div"}

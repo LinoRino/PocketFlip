@@ -1,14 +1,13 @@
-import { css } from "@emotion/css";
+import { css } from "solid-styled-components";
 import { createSignal } from "solid-js";
 import { A, useNavigate } from "solid-start";
 import { Form } from "solid-start/data/Form";
 import { logIn } from "~/api/auth";
-import { Button } from "~/components/Button/Button";
-import { TxtInput } from "~/components/TxtInput/TxtInput";
+import { Box, Button, TxtInput } from "~/components";
 
-export default function Logout() {
-  let mailRef: HTMLInputElement | undefined;
-  let passRef: HTMLInputElement | undefined;
+export default function Login() {
+  let mailRef: HTMLInputElement;
+  let passRef: HTMLInputElement;
   const [loading, setLoad] = createSignal(false);
   const navigate = useNavigate();
   async function SubmitHdler() {
@@ -29,12 +28,13 @@ export default function Logout() {
     }
   }
   return (
-    <main
-      class={css`
-        display: flex;
-        justify-content: center;
-        place-items: center;
-      `}
+    <Box
+      component="main"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        placeItems: "center",
+      }}
     >
       <Form
         onSubmit={SubmitHdler}
@@ -51,7 +51,7 @@ export default function Logout() {
       >
         <h1>Log in</h1>
         <TxtInput
-          inputRef={mailRef}
+          inputRef={(el) => (mailRef = el)}
           label="Email:"
           type="email"
           placeholder="email"
@@ -59,7 +59,7 @@ export default function Logout() {
           sx={{ width: "-webkit-fill-available", marginBottom: "1rem" }}
         />
         <TxtInput
-          inputRef={passRef}
+          inputRef={(el) => (passRef = el)}
           label="Password:"
           type="password"
           placeholder="password"
@@ -74,6 +74,6 @@ export default function Logout() {
           <A href="/signup">just click here to sign up.</A>
         </p>
       </Form>
-    </main>
+    </Box>
   );
 }

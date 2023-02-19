@@ -1,23 +1,31 @@
-import { css } from "@emotion/css";
+import { css } from "solid-styled-components";
 import { createSignal } from "solid-js";
 import { A, useNavigate } from "solid-start";
 import { Form } from "solid-start/data/Form";
 import { signUp } from "~/api/auth";
-import { Button } from "~/components/Button/Button";
-import { TxtInput } from "~/components/TxtInput/TxtInput";
+import { Button, TxtInput } from "~/components";
 
-export default function Logout() {
-  let usrRef: HTMLInputElement | undefined;
+export default function SignUp() {
+  // Ref
+  let usrnameRef: HTMLInputElement | undefined;
   let nameRef: HTMLInputElement | undefined;
   let mailRef: HTMLInputElement | undefined;
   let passRef: HTMLInputElement | undefined;
   let passconfRef: HTMLInputElement | undefined;
+  // Value
+  const [username, name, mail, pass, passcon] = [
+    usrnameRef?.value,
+    nameRef?.value,
+    mailRef?.value,
+    passRef?.value,
+    passconfRef?.value,
+  ];
   const [loading, setLoad] = createSignal(false);
   const navigate = useNavigate();
   async function SubmitHdler() {
     setLoad(true);
-    if (mailRef && passRef && usrRef && nameRef && passconfRef) {
-      await signUp()
+    if (username && pass && mail && name && passcon) {
+      await signUp(username, mail, pass, passcon, name)
         .then((res) => {
           if (res) {
             alert("ログインに成功しました。");
@@ -34,7 +42,8 @@ export default function Logout() {
   return (
     <main
       class={css`
-        display: grid;
+        display: flex;
+        justify-content: center;
         place-items: center;
       `}
     >
@@ -45,18 +54,33 @@ export default function Logout() {
           flex-direction: column;
           width: fit-content;
           text-align: start;
+          width: 100%;
+          margin: 0 2rem;
+          margin-bottom: 3.75rem;
+          max-width: 36rem;
         `}
       >
-        <h1>Login</h1>
-        <label>
-          <span>Email:</span>
-          <TxtInput
-            inputRef={mailRef}
-            type="email"
-            placeholder="email"
-            sx={{ width: "-webkit-fill-available", marginBottom: "1.5rem" }}
-          />
-        </label>
+        <h1>Sign up</h1>
+        <TxtInput
+          inputRef={usrnameRef}
+          name="name"
+          type="text"
+          placeholder="your name"
+          sx={{ width: "-webkit-fill-available", marginBottom: "1.5rem" }}
+        />
+        <TxtInput
+          inputRef={nameRef}
+          name="name"
+          type="text"
+          placeholder="name"
+          sx={{ width: "-webkit-fill-available", marginBottom: "1.5rem" }}
+        />
+        <TxtInput
+          inputRef={mailRef}
+          type="email"
+          placeholder="email"
+          sx={{ width: "-webkit-fill-available", marginBottom: "1.5rem" }}
+        />
         <TxtInput
           inputRef={passRef}
           type="password"
@@ -64,7 +88,7 @@ export default function Logout() {
           sx={{ width: "-webkit-fill-available", marginBottom: "1.5rem" }}
         />
         <Button type="submit" sx={{ justifyContent: "center" }}>
-          {loading() ? "Loading..." : "Log in"}
+          {loading() ? "Loading..." : "Sign up"}
         </Button>
         <p>
           If you already have your account ,{" "}

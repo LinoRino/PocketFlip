@@ -1,4 +1,4 @@
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 
 export type V2CssMediaQ =
   | {
@@ -11,16 +11,16 @@ export type V2CssMediaQ =
        *
        * @see https://developer.mozilla.org/docs/Web/CSS/@media
        */
-      _MinSm?: CSSObject;
-      _MinMd?: CSSObject;
-      _MinLg?: CSSObject;
-      _MinXl?: CSSObject;
-      _Min2Xl?: CSSObject;
-      _MaxSm?: CSSObject;
-      _MaxMd?: CSSObject;
-      _MaxLg?: CSSObject;
-      _MaxXl?: CSSObject;
-      _Max2Xl?: CSSObject;
+      _MinSm?: CSSAttribute;
+      _MinMd?: CSSAttribute;
+      _MinLg?: CSSAttribute;
+      _MinXl?: CSSAttribute;
+      _Min2Xl?: CSSAttribute;
+      _MaxSm?: CSSAttribute;
+      _MaxMd?: CSSAttribute;
+      _MaxLg?: CSSAttribute;
+      _MaxXl?: CSSAttribute;
+      _Max2Xl?: CSSAttribute;
     }
   | undefined;
 

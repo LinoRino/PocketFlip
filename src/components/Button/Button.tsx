@@ -1,5 +1,5 @@
 import { JSX } from "solid-js";
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 import type { Property } from "csstype";
 
 type V2ButtonComponent = {
@@ -14,10 +14,8 @@ type V2ButtonComponent = {
   link?: boolean;
   variant?: "text" | "outline" | "filled";
   icon?: JSX.Element;
-  event?:
-    | JSX.CustomEventHandlersCamelCase<HTMLButtonElement>
-    | JSX.CustomEventHandlersCamelCase<HTMLAnchorElement>;
-  sx?: CSSObject & {
+  onClick?: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
+  sx?: CSSAttribute & {
     paddingX?: Property.Padding<0 | string>;
     paddingY?: Property.Padding<0 | string>;
   };
@@ -31,6 +29,7 @@ export function Button(props: V2ButtonComponent) {
   const sx = props.sx;
   // Normal class
   const ButtonClass = css({
+    cursor: "pointer",
     display: "inline-flex",
     fontFamily: "Ubuntu",
     lineHeight: "1.5rem !important",
@@ -91,6 +90,7 @@ export function Button(props: V2ButtonComponent) {
         class={`V2Button ${pickClass()} ${ButtonClass}`}
         type={props.type}
         disabled={props.disabled}
+        onClick={props.onClick}
       >
         {props.children}
       </button>

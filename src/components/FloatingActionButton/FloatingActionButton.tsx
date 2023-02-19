@@ -1,5 +1,5 @@
 import { JSX } from "solid-js";
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 import { V2CssMediaQ } from "../utility/Utility";
 
 type V2FloatingActionButtonComponent = {
@@ -7,7 +7,7 @@ type V2FloatingActionButtonComponent = {
   icon: JSX.Element;
   name?: string;
   title?: string;
-  sx?: CSSObject & V2CssMediaQ;
+  sx?: CSSAttribute & V2CssMediaQ;
 } & JSX.CustomEventHandlersCamelCase<HTMLButtonElement | HTMLAnchorElement>;
 
 export function Fab(props: V2FloatingActionButtonComponent) {

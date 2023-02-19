@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css } from "solid-styled-components";
 
 type V2ToggleComponent = {
   label?: string;

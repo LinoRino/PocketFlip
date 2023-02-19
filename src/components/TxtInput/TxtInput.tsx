@@ -1,4 +1,4 @@
-import { css, CSSObject } from "@emotion/css";
+import { css, CSSAttribute } from "solid-styled-components";
 import { createSignal, JSX } from "solid-js";
 import { sxMediaQ, V2CssMediaQ } from "../utility/Utility";
 
@@ -13,12 +13,12 @@ type V2TxtInputComponent = {
   autoFocus?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
-  inputRef?: HTMLInputElement;
+  inputRef?: HTMLInputElement | ((el: HTMLInputElement) => void);
   required?: boolean;
   /**
    * This prop makes style this component using [Emotion](https://emotion.sh/docs/@emotion/css).
    */
-  sx?: CSSObject & V2CssMediaQ;
+  sx?: CSSAttribute & V2CssMediaQ;
   event?: JSX.CustomEventHandlersCamelCase<HTMLInputElement>;
 };
 
@@ -80,12 +80,18 @@ export function TxtInput(props: V2TxtInputComponent) {
           autofocus={props.autoFocus}
           placeholder={props.placeholder}
           class={`V2TxtInput`}
+          style={
+            props.type == "password"
+              ? { "padding-right": "calc(0.75rem + 1.75rem + 0.25rem)" }
+              : undefined
+          }
         />
         {props.type == "password" && (
           <button
             type="button"
             onClick={() => setShow((e) => !e)}
             class={css`
+              outline: 0;
               cursor: pointer;
               position: absolute;
               background-color: transparent;
@@ -102,6 +108,9 @@ export function TxtInput(props: V2TxtInputComponent) {
               color: #000000;
               &:active {
                 scale: 0.95;
+              }
+              &:focus {
+                background-color: #3d3d3d39;
               }
             `}
             title={show() ? "パスワードを表示する" : "パスワードを隠す"}
