@@ -12,14 +12,14 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-solid": "^0.9.4",
     "pocketbase": "^0.10.1",
     "prettier": "^2.8.3",
     "solid-start-node": "^0.2.20",
     "solid-styled-components": "^0.28.5",
     "typescript": "^4.9.4",
-    "vite": "^3.2.5",
-    "vite-plugin-solid-styled": "^0.7.5"
+    "vite": "^3.2.5"
   },
   "dependencies": {
     "@babel/core": "^7.20.12",
@@ -30,7 +30,6 @@
     "csstype": "^3.1.1",
     "solid-js": "^1.6.9",
     "solid-start": "^0.2.15",
-    "solid-styled": "^0.7.4",
     "undici": "^5.15.1"
   },
   "engines": {
