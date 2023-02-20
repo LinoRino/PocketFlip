@@ -1,5 +1,5 @@
 // @refresh reload
-import { createSignal, onMount, Suspense, } from "solid-js";
+import { createSignal, onMount, Suspense } from "solid-js";
 import {
   Body,
   ErrorBoundary,
@@ -16,7 +16,6 @@ import "./root.css";
 function GlobalStyles() {
   return null;
 }
-import { PBContextProvider } from "./api/pb";
 import { BottomNav } from "./components/BottomNavigation/BottomNavigation";
 
 export default function Root() {
@@ -31,32 +30,30 @@ export default function Root() {
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <PBContextProvider>
-        <Body>
-          <GlobalStyles />
-          {loading() ? (
-            <main id="loading">
-              <h1>Loading...</h1>
-            </main>
-          ) : (
-            <Suspense>
-              <ErrorBoundary>
-                <Routes>
-                  <FileRoutes />
-                </Routes>
-              </ErrorBoundary>
-              <BottomNav
-                sx={{
-                  _MinLg: {
-                    display: "none",
-                  },
-                }}
-              ></BottomNav>
-            </Suspense>
-          )}
-          <Scripts />
-        </Body>
-      </PBContextProvider>
+      <Body>
+        <GlobalStyles />
+        {loading() ? (
+          <main id="loading">
+            <h1>Loading...</h1>
+          </main>
+        ) : (
+          <Suspense>
+            <ErrorBoundary>
+              <Routes>
+                <FileRoutes />
+              </Routes>
+            </ErrorBoundary>
+            <BottomNav
+              sx={{
+                _MinLg: {
+                  display: "none",
+                },
+              }}
+            ></BottomNav>
+          </Suspense>
+        )}
+        <Scripts />
+      </Body>
     </Html>
   );
 }
