@@ -1,12 +1,12 @@
 import { createSignal } from "solid-js";
 import { useNavigate } from "solid-start";
 import { logOut } from "~/api/auth";
-import { usePB, useUsr } from "~/api/pb";
+import { pb, useUsr } from "~/api/pb";
 import { TxtInput, Toggle, Box, Button, Dialog } from "~/components";
 
 export default function Setting() {
-  const [dialogIsOpen, setDialogOpen] = createSignal(false)
-  const [app, usr] = [usePB(), useUsr()];
+  const [dialogIsOpen, setDialogOpen] = createSignal(false);
+  const [app, usr] = [pb, pb.authStore.model];
   const navigate = useNavigate();
   const [logging, setLog] = createSignal(false);
   function logoutHdler() {
@@ -35,7 +35,9 @@ export default function Setting() {
         />
         <Toggle />
       </Box>
-      <Button sx={{padding: "1rem"}} onClick={()=>setDialogOpen(true)}>a</Button>
+      <Button name="open dialog" onClick={() => setDialogOpen(true)}>
+        a
+      </Button>
       <Dialog open={dialogIsOpen} setOpen={setDialogOpen}>
         <p>This is my first Dialog! hello wolrd! my name is Kenshin!</p>
       </Dialog>
