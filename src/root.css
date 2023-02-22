@@ -2,9 +2,16 @@
 @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 
 body {
-  font-family: Ubuntu, Oxygen, Roboto, Cantarell, "Open Sans", "Helvetica Neue",
+  font-family: Ubuntu, Oxygen, Roboto, Cantarell, "Open Sans", "SF Pro",
     sans-serif;
 }
+
+* {
+  outline-color: -webkit-focus-ring-color;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 main {
   text-align: center;
   margin: 0 auto;
@@ -16,4 +23,14 @@ main#loading {
   align-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+button {
+  cursor: pointer;
 }
