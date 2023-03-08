@@ -27,3 +27,5 @@ Thumbs.db
 backend/pb_data
 backend/pb_migrations
 backend/pocketbase
+
+node_modules
